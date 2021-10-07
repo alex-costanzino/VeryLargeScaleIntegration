@@ -1,0 +1,4 @@
+width = 8;
+ICs_number = 4;
+IC_widths = [3, 3, 5, 5];
+IC_heights = [3, 5, 3, 5];
