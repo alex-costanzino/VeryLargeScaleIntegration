@@ -59,8 +59,23 @@ constraint redundant_constraint(cumulative(y, IC_heights, IC_widths, width));
 % (5) A circuit shall not rotate if its height is greater than the width of the plate.
 constraint forall(i in ICs)(IC_heights[i] > width -> rotation[i] == false);
 
-solve minimize height;
+/* Heuristics settings */
+ann: search_over_x = int_search(x, dom_w_deg, indomain_split);
+ann: search_over_y = int_search(y, dom_w_deg, indomain_split);
+ann: search_over_rotation = bool_search(rotation, dom_w_deg, indomain_split);
+%ann: restart_strategy = restart_constant(100);
+%ann: restart_strategy = restart_linear(100);
+%ann: restart_strategy = restart_geometric(1.5, 100);
+%ann: restart_strategy = restart_luby(100);
+ann: restart_strategy = restart_none;
 
+/* Solver */
+solve :: search_over_x
+      :: search_over_y
+      :: restart_strategy
+      :: search_over_rotation
+         minimize height;
+ 
 /* Output */
 output ["\(width) \(height)"];
 output ["\n"];

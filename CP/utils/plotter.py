@@ -40,17 +40,17 @@ def main():
         y_t.append(tm_[k])
 
     print(x_t)
-    print(y_t)     
+    print(y_t)
     
     # Number of instances to scale the plot.
-    solved_instances = 30
+    solved_instances = 40
     
     sns.set_theme(style = 'whitegrid')
     bar = sns.barplot(x_t[:solved_instances], y_t[:solved_instances], palette = 'tab10')
     bar.set(xlabel = 'Instance No. [#]', ylabel = 'Time [log(s)]')
     plt.axhline(y = 300, color = 'dimgray', linestyle = 'dashed') # Time limit.
     
-    plt.title('Global model with rotations and relaxed symmetry-breaking constraints')
+    plt.title('Symmetry-breaking model with dom_w_deg and indomain_random with restart_geometric')
     plt.yscale('log') # For better comparison.
     
 if __name__ == '__main__':

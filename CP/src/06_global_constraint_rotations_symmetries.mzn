@@ -75,58 +75,8 @@ constraint symmetry_breaking_constraint(x[max_height_index] == 0 /\ y[max_height
 constraint symmetry_breaking_constraint(sum(i in ICs where x[i] <= width div 2)(IC_areas[i]) >= sum(i in ICs where x[i] > (width div 2))(IC_areas[i]));
 % There shall be an higher density on the left side of the board.
 
-/* Heuristics settings */
-int: heuristic = 6;
-int: restart = 4;
-
-ann: search_ann_x = 
-if heuristic == 1 then
-  int_search(x, input_order, indomain_min)
-elseif heuristic == 2 then
-  int_search(x, first_fail, indomain_min)
-elseif heuristic == 3 then
-  int_search(x, dom_w_deg, indomain_min)
-elseif heuristic == 4 then
-  int_search(x, input_order, indomain_random)
-elseif heuristic == 5 then
-  int_search(x, first_fail, indomain_random)
-else
-  int_search(x, dom_w_deg, indomain_random)
-endif;
-
-ann: search_ann_y = 
-if heuristic == 1 then
-  int_search(y, input_order, indomain_min)
-elseif heuristic == 2 then
-  int_search(y, first_fail, indomain_min)
-elseif heuristic == 3 then
-  int_search(y, dom_w_deg, indomain_min)
-elseif heuristic == 4 then
-  int_search(y, input_order, indomain_random)
-elseif heuristic == 5 then
-  int_search(y, first_fail, indomain_random)
-else
-  int_search(y, dom_w_deg, indomain_random)
-endif;
-
-ann: restart_ann =
-if restart == 1 then
-  restart_constant(100)
-elseif restart == 2 then
-  restart_linear(100)
-elseif restart == 3 then
-  restart_geometric(1.5,100)
-elseif restart == 4 then
-  restart_luby(100)
-else
-  restart_none
-endif;
-
 /* Solver */
-solve :: search_ann_x
-      :: search_ann_y
-      :: restart_ann
-         minimize height;
+solve minimize height;
 
 /* Output */
 output ["\(width) \(height)"];
