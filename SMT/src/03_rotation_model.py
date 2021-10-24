@@ -38,7 +38,7 @@ def rotation_model(width: int, ICs_number: int, IC_widths: list, IC_heights: lis
     Returns
     -------
     tuple
-        Model solution with elapsed time.
+        Model solution with rotation status and elapsed time.
     
     '''
     

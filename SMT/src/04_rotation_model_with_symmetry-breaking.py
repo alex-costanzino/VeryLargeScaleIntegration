@@ -21,15 +21,10 @@ import numpy as np
 from timeit import default_timer as timer
 from tqdm import trange
 
-def z3_max(vector):
-    maximum = vector[0]
-    for value in vector[1:]:
-        maximum = If(value > maximum, value, maximum)
-    return maximum
-
 def rotation_model(width: int, ICs_number: int, IC_widths: list, IC_heights: list) -> tuple:
     '''
-    Implement the rotation model for the 2d strip packing problem.
+    Implement the rotation model with symmetry-breaking constraints
+    for the 2d strip packing problem.
 
     Parameters
     ----------
@@ -45,7 +40,7 @@ def rotation_model(width: int, ICs_number: int, IC_widths: list, IC_heights: lis
     Returns
     -------
     tuple
-        Model solution with elapsed time.
+        Model solution with rotation status and elapsed time.
     
     '''
     
