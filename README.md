@@ -51,7 +51,7 @@ To execute the models just change all the addresses in `cp_eggsecutor.py` for CP
 * [tqdm](https://github.com/tqdm/tqdm) 4.62.3;
 * [Numpy](https://numpy.org/) 1.21.
 
-Further details can be found in the report.
+Further details can be found in the reports.
 
 ## License
 
