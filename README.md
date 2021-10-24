@@ -42,6 +42,7 @@ To execute the models just change all the addresses in `cp_eggsecutor.py` for CP
     │   │   └── solution-visualizer.py                                # Routine to visualize solutions
     │   ├── report.pdf  
     │   └── stats.xlsx                                                # Statistics to evaluate models
+    ├── bib                                                           # Contains some of the papers used in this project
     ├── LICENSE
     └── README.md
 ```
