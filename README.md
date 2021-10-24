@@ -5,6 +5,7 @@ The projects is realized by me.
 
 ## Repository structure and contents
 To execute the models just change all the addresses in `cp_eggsecutor.py` for CP and in each model for SMT.
+```
     .
     ├── data
     │   └── instances                                                 # Folder that contains all the instances as text files
@@ -43,6 +44,7 @@ To execute the models just change all the addresses in `cp_eggsecutor.py` for CP
     │   └── stats.xlsx                                                # Statistics to evaluate models
     ├── LICENSE
     └── README.md
+```
 
 ## Main libraries
 * [Z3Py](https://github.com/Z3Prover/z3) 4.8.12;
