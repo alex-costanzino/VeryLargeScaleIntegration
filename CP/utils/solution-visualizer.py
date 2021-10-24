@@ -7,9 +7,7 @@ September, 2021
 
 import numpy as np
 import matplotlib.pyplot as plt
-
-my_dpi = 96
-plt.figure(figsize = (800/my_dpi, 800/my_dpi), dpi = my_dpi)
+plt.figure(figsize=(1,1))
 
 def solution_extractor(solution):
     extracted_solution = {}
@@ -48,7 +46,7 @@ def draw_solution(extracted_solution, ins):
             for y in range(posY, posY + circuit_height):
                 board[cols - 1 - y, x] = circuit_index
         circuit_index += 1
-        
+    
     fig, ax = plt.subplots()
     ax.set_xticks(np.arange(0, extracted_solution["board_dim"][0] + 1, 1))
     ax.set_yticks(np.arange(0, extracted_solution["board_dim"][1] + 1, 1))
